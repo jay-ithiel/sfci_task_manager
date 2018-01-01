@@ -39,8 +39,8 @@ Department
 
 Task
   task_name: string
-  assignee_id: number
-  assigner_id: number
+  assignee_id: integer
+  assigner_id: integer
   due_date: date
   completed: boolean
 
@@ -50,18 +50,18 @@ Task
 
 
 DepartmentTasks
-  department_id: number
-  task_id: number
+  department_id: integer
+  task_id: integer
 
 
 EmployeeDepartments
-  department_id: number
-  employee_id: number
+  department_id: integer
+  employee_id: integer
 
 
 
 employees
-  id: number
+  id: integer
   first_name: string
   last_name: string
   username: string
@@ -71,27 +71,27 @@ employees
 
 
 departments
-  id: number
+  id: integer
   name: string
 
 
 tasks
-  id: number
+  id: integer
   name: string
   description: text
-  assignee_id: number
-  assigner_id: number
+  assignee_id: integer
+  assigner_id: integer
   due_date: date
   completed: boolean
 
 
 employeeDepartments
-  id: number
-  employee_id: number
-  department_id: number
+  id: integer
+  employee_id: integer
+  department_id: integer
 
 
 departmentTasks
-  id: number
-  department_id: number
-  task_id: number
+  id: integer
+  department_id: integer
+  task_id: integer
