@@ -1,3 +1,5 @@
 class EmployeeDepartment < ApplicationRecord
-  validates :assigner, :assignee, presence: true
+  validates :employee, :department, presence: true
+  belongs_to :employee
+  belongs_to :department
 end

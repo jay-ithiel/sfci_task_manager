@@ -1,7 +1,7 @@
 class Employee < ApplicationRecord
-  validates :first_name, :last_name, :username, :password_digest, :session_token, presence: true
   validates :username, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
+  validates :first_name, :last_name, :username, :password_digest, :session_token, presence: true
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email,
@@ -9,6 +9,12 @@ class Employee < ApplicationRecord
             length: { maximum: 250 },
             uniqueness: { case_sensitive: false },
             format: { with: VALID_EMAIL_REGEX }
+
+  has_many :tasks
+
+  has_many :departments,
+    through: :employeeDepartments,
+    source: :department
 
   after_initialize :ensure_session_token
 
