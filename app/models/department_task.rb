@@ -1,6 +1,7 @@
 class DepartmentTask < ApplicationRecord
-  validates :department_id, :task_id, presence: true
-  
+  validates :department, :task, presence: true
+  validates :department_id, uniqueness: { scope: :task_id }
+
   belongs_to :department
   belongs_to :task
 end

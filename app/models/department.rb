@@ -8,4 +8,8 @@ class Department < ApplicationRecord
   has_many :tasks,
     through: :departmentTasks,
     source: :task
+
+  has_many :sub_tasks,
+    through: :departmentSubTasks,
+    source: :sub_task
 end

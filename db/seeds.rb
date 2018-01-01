@@ -11,3 +11,5 @@ Department.create(name: "Music")
 
 
 Task.create(name: "Task 1", description: "Task 1 description", assignee_id: 2, assigner_id: 1, due_date: Date.new(2018, 1, 21) )
+
+SubTask.create(name: "Subtask 1", description: "Subtask 1 description", task_id: 1, assignee_id: 2, assigner_id: 1, due_date: Date.new(2018,1,21))
