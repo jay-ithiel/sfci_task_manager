@@ -6,7 +6,7 @@ class CreateTasks < ActiveRecord::Migration[5.0]
       t.integer :assignee_id, null: false
       t.integer :assigner_id, null: false
       t.datetime :due_date, null: false
-      t.boolean :completed, null: false, default: false
+      t.boolean :is_completed, default: false
 
       t.timestamps
     end

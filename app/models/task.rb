@@ -1,5 +1,5 @@
 class Task < ApplicationRecord
-  validates :name, :description, :assignee, :assigner, :due_date, :completed, presence: true
+  validates :name, :description, :assignee, :assigner, :due_date, presence: true
 
   has_many :departments,
     through: :departmentTasks,
