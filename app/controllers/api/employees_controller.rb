@@ -1,4 +1,4 @@
-class Api::EmployeeController < ApplicationController
+class Api::EmployeesController < ApplicationController
   def create
     @employee = Employee.new(employee_params)
     if @employee.save
