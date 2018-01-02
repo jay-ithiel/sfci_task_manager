@@ -43,6 +43,7 @@ class Api::EmployeesController < ApplicationController
         :username,
         :email,
         :password,
+        :image_url,
         :departments,
         :tasks,
         :sub_tasks

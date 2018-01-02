@@ -7,6 +7,7 @@ class CreateEmployees < ActiveRecord::Migration[5.0]
       t.string :email, null: false, index: true, unique: true
       t.string :password_digest, null: false
       t.string :session_token, null: false
+      t.string :image_url
 
       t.timestamps
     end
