@@ -1,0 +1,10 @@
+<script type="text/javascript">
+  <% if logged_in? %>
+    window.currentUser = <%= render(
+      "api/employees/employee.json.jbuilder",
+      employee: current_user
+    ).html_safe %>
+  <% end %>
+</script>
+
+<main id="root"></main>
