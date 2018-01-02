@@ -11,21 +11,29 @@ class Employee < ApplicationRecord
             format: { with: VALID_EMAIL_REGEX }
 
   has_many :tasks
-
+  has_many :sub_tasks
   has_many :departments,
     through: :employeeDepartments,
     source: :department
 
   after_initialize :ensure_session_token
 
+  def self.find_by_credentials(username_or_email, password)
+    if Employee.is_valid_email?(username_or_email)
+      return Employee.find_by_email(username_or_email, password)
+    else
+      return Employee.find_by_username(username_or_email, password)
+    end
+  end
+
   def self.find_by_username(username, password)
-    user = Employee.find_by(username: username)
-    user && user.is_password?(password) ? user : nil
+    employee = Employee.find_by(username: username)
+    employee && employee.is_password?(password) ? user : nil
   end
 
   def self.find_by_email(email, password)
-    user = Employee.find_by(email: email)
-    user && user.is_password?(password) ? user : nil
+    employee = Employee.find_by(email: email)
+    employee && employee.is_password?(password) ? user : nil
   end
 
   def self.gen_session_token
@@ -52,4 +60,11 @@ class Employee < ApplicationRecord
   def ensure_session_token
     self.session_token ||= Employee.gen_session_token
   end
+
+  private
+
+    def self.is_valid_email?(email)
+      email =~ VALID_EMAIL_REGEX
+      email.nil? ? false : true
+    end
 end

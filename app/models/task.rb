@@ -1,6 +1,12 @@
 class Task < ApplicationRecord
   validates :name, :description, :assignee, :assigner, :due_date, presence: true
 
+  has_many :sub_tasks
+
+  has_many :departments,
+    through: :departmentTasks,
+    source: :department
+
   belongs_to :assigner,
     primary_key: :id,
     foreign_key: :assigner_id,
@@ -10,10 +16,4 @@ class Task < ApplicationRecord
     primary_key: :id,
     foreign_key: :assignee_id,
     class_name: :Employee
-
-  has_many :departments,
-    through: :departmentTasks,
-    source: :department
-
-  has_many :sub_tasks
 end
